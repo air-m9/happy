@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>用户反馈循环展示</title>
+
+    <style>
+
+        /* 基础样式 - 暖色系主题 */
+
+        body {
+
+            margin: 0;
+
+            padding: 0;
+
+            font-family: "Microsoft YaHei", sans-serif;
+
+            background-color: #FFF9F2; /* 暖色系底色 */
+
+            color: #333;
+
+        }
+
+        .header {
+
+            background-color: #FF9240; /* 暖橙色标题栏 */
+
+            color: white;
+
+            padding: 15px;
+
+            text-align: center;
+
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+
+        }
+
+        .container {
+
+            max-width: 800px;
+
+            margin: 20px auto;
+
+            padding: 0 15px;
+
+        }
+
+        .intro {
+
+            text-align: center;
+
+            margin-bottom: 25px;
+
+            color: #666;
+
+        }
+
+        /* 滚动容器 */
+
+        .scroll-container {
+
+            height: 60vh;
+
+            overflow: hidden;
+
+            background-color: #FFFAF5;
+
+            border-radius: 12px;
+
+            box-shadow: inset 0 0 10px rgba(255,146,64,0.1);
+
+            padding: 15px;
+
+        }
+
+        .scroll-content {
+
+            position: relative;
+
+            animation: scroll 30s linear infinite;
+
+        }
+
+        .scroll-content:hover {
+
+            animation-play-state: paused; /* 鼠标悬浮暂停 */
+
+        }
+
+        /* 反馈卡片样式 */
+
+        .feedback-card {
+
+            background-color: white;
+
+            border-radius: 10px;
+
+            padding: 18px;
+
+            margin-bottom: 15px;
+
+            box-shadow: 0 3px 8px rgba(255,146,64,0.15);
+
+            border-left: 4px solid #FFB880; /* 暖色系边框 */
+
+        }
+
+        .feedback-card:nth-child(even) {
+
+            border-left-color: #FF9240; /* 交替边框色，区分卡片 */
+
+        }
+
+        .card-label {
+
+            font-size: 14px;
+
+            color: #FF7F20; /* 暖色系标签色 */
+
+            font-weight: bold;
+
+            margin-bottom: 5px;
+
+        }
+
+        .card-value {
+
+            font-size: 16px;
+
+            margin-bottom: 10px;
+
+            color: #555;
+
+        }
+
+        .content-value {
+
+            background-color: #FFF9F2;
+
+            padding: 12px;
+
+            border-radius: 8px;
+
+            border: 1px solid #FFEED8;
+
+            word-break: break-all;
+
+        }
+
+        /* 控制按钮 */
+
+        .control-btn {
+
+            display: block;
+
+            margin: 20px auto;
+
+            padding: 12px 30px;
+
+            background-color: #FF9240;
+
+            color: white;
+
+            border: none;
+
+            border-radius: 30px;
+
+            font-size: 16px;
+
+            cursor: pointer;
+
+            box-shadow: 0 3px 8px rgba(255,146,64,0.2);
+
+        }
+
+        .control-btn:hover {
+
+            background-color: #FF7F20;
+
+        }
+
+        .footer {
+
+            text-align: center;
+
+            margin-top: 30px;
+
+            padding: 15px;
+
+            color: #888;
+
+            font-size: 14px;
+
+            background-color: #FFFAF5;
+
+        }
+
+        /* 滚动动画 */
+
+        @keyframes scroll {
+
+            0% {
+
+                top: 0;
+
+            }
+
+            100% {
+
+                top: -100%;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- 标题栏 -->
+
+    <div class="header">
+
+        <h1>用户反馈循环展示</h1>
+
+        <p>共 15 条用户反馈 · 点击暂停/继续</p>
+
+    </div>
+
+
+
+    <!-- 主要内容 -->
+
+    <div class="container">
+
+        <div class="intro">
+
+            <p>以下是用户的真实反馈，内容自动循环滚动</p>
+
+        </div>
+
+
+
+        <!-- 滚动容器 -->
+
+        <div class="scroll-container" id="scrollContainer">
+
+            <div class="scroll-content" id="scrollContent">
+
+                <!-- 反馈内容1 -->
+
+                <div class="feedback-card">
+
+                    <div class="card-label">反馈时间</div>
+
+                    <div class="card-value">2025-12-09 16:00:24</div>
+
+                    <div class="card-label">反馈人</div>
+
+                    <div class="card-value">杨*</div>
+
+                    <div class="card-label">反馈人手机号</div>
+
+                    <div class="card-value">189****6058</div>
+
+                    <div class="card-label">反馈内容</div>
+
+                    <div class="card-value content-value">坚持每天打卡，希望自己的身体越来越好。</div>
+
+                </div>
+
+
+
+                <!-- 反馈内容2 -->
+
+                <div class="feedback-card">
+
+                    <div class="card-label">反馈时间</div>
+
+                    <div class="card-value">2025-12-09 15:49:26</div>
+
+                    <div class="card-label">反馈人</div>
+
+                    <div class="card-value">叶*</div>
+
+                    <div class="card-label">反馈人手机号</div>
+
+                    <div class="card-value">135****0318</div>
+
+                    <div class="card-label">反馈内容</div>
+
+                    <div class="card-value content-value">不要生病，一年健健康康平平安安</div>
+
+                </div>
+
+
+
+                <!-- 反馈内容3 -->
+
+                <div class="feedback-card">
+
+                    <div class="card-label">反馈时间</div>
+
+                    <!-- 此处可继续补充剩余的反馈内容 -->
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
